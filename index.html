@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Soniya 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #ffe6f0;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 1s;
+  }
+
+  .container {
+    text-align: center;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 2;
+  }
+
+  h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    color: #ff3399;
+  }
+
+  p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+  }
+
+  button {
+    background: linear-gradient(135deg, #ff99cc, #ff66b3);
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 16px;
+    margin: 15px 8px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255,102,179,0.4);
+    transition: 0.3s;
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255,102,179,0.5);
+  }
+
+  .hidden { display: none; }
+
+  .tulip-bg {
+    background: url('https://images.unsplash.com/photo-1612831455540-18f8f2c75c6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8dHVsZXB8fHx8fHwxNjg0MzM4NzM5&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
+    position: fixed;
+    top:0; left:0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+  }
+
+  /* Floating bears */
+  .bear {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    background: url('https://i.ibb.co/7J4v8vZ/cute-bear.png') no-repeat center center/contain;
+    animation: float 6s ease-in-out infinite;
+    z-index: -1;
+  }
+
+  .bear:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+  .bear:nth-child(2) { top: 20%; left: 80%; animation-delay: 2s; }
+  .bear:nth-child(3) { top: 70%; left: 30%; animation-delay: 4s; }
+  .bear:nth-child(4) { top: 60%; left: 70%; animation-delay: 1s; }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .final-question button { width: 120px; }
+
+  /* Cute envelope */
+  .envelope {
+    width: 180px;
+    height: 120px;
+    margin: 30px auto;
+    position: relative;
+    cursor: pointer;
+    border-radius: 15px;
+    background: #ffb6c1;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    overflow: hidden;
+    transition: transform 0.6s;
+  }
+
+  .envelope .flap {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    background: #ff69b4;
+    top: 0;
+    left: 0;
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    transition: transform 0.6s;
+    transform-origin: top center;
+    z-index: 2;
+  }
+
+  .envelope.open .flap {
+    transform: rotateX(180deg);
+  }
+
+  .envelope .heart-seal {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background: #ff4d99;
+    clip-path: polygon(50% 0%, 61% 10%, 68% 25%, 50% 60%, 32% 25%, 39% 10%);
+    z-index: 3;
+  }
+
+</style>
+</head>
+<body>
+<div class="tulip-bg"></div>
+
+<!-- Floating bears -->
+<div class="bear"></div>
+<div class="bear"></div>
+<div class="bear"></div>
+<div class="bear"></div>
+
+<div class="container">
+  <!-- Step 1 -->
+  <div id="step1">
+    <h1>Hi Soniya! 💖</h1>
+    <p>I wanted to say something to you. I hope you like it!</p>
+    <button onclick="nextStep(2)">Next</button>
+  </div>
+
+  <!-- Step 2 -->
+  <div id="step2" class="hidden">
+    <h1>🌸 Just for you 🌸</h1>
+    <p>Everything about you makes my world beautiful and brighter.</p>
+    <audio autoplay loop id="music">
+      <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+    </audio>
+    <button onclick="nextStep(3)">Next</button>
+  </div>
+
+  <!-- Step 3 - Cute Envelope -->
+  <div id="step3" class="hidden">
+    <div class="envelope" onclick="openEnvelope()">
+      <div class="flap"></div>
+      <div class="heart-seal"></div>
+    </div>
+    <p>Click the envelope 💌</p>
+  </div>
+
+  <!-- Step 4 - Love message -->
+  <div id="step4" class="hidden">
+    <h1>To Soniya 💖</h1>
+    <p>Everything about you makes me happy. Talking to you makes everything better. You are beautiful, kind, and amazing. I like you a lot, and being with you feels peaceful and wonderful.</p>
+    <button onclick="readAgain()">Read Again</button>
+    <button onclick="nextStep(5)">Next</button>
+  </div>
+
+  <!-- Step 5 - Proposal -->
+  <div id="step5" class="hidden final-question">
+    <h1>Will you be my girlfriend, Soniya? 💖</h1>
+    <button onclick="answerYes()">Yes 💕</button>
+    <button onclick="answerNo()">No 😢</button>
+  </div>
+
+  <!-- Step 6 - After Yes -->
+  <div id="step6" class="hidden">
+    <h1>Yay! 💖</h1>
+    <p>I'm so happy! Thank you for saying yes, Soniya! 🌸</p>
+  </div>
+
+</div>
+
+<script>
+function nextStep(step){
+  document.querySelectorAll('.container > div').forEach(d => d.classList.add('hidden'));
+  document.getElementById('step'+step).classList.remove('hidden');
+}
+
+function openEnvelope(){
+  document.querySelector('.envelope').classList.add('open');
+  setTimeout(() => nextStep(4), 700);
+}
+
+function readAgain(){
+  nextStep(3);
+}
+
+function answerYes(){
+  nextStep(6);
+}
+
+function answerNo(){
+  alert("Please click yes ❤️"); // gentle insist
+}
+</script>
+</body>
+</html>
